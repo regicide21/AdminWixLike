@@ -1,0 +1,103 @@
+  <main class="main_admin">
+    <h1 class="h1_main_admin">{{message.text}}</h1>
+    <div class="checkbox_container">
+      <p class="p__checkbox_container">Editor mode</p>
+      <label class='dark_light_theme'>
+        <input type="checkbox" id="checkbox"/>
+        <div class="switch_mode false" onclick="ChangeMode(this)">
+          <div class="slider__switch_mode false"></div>
+        </div>
+      </label>
+    </div>
+  </main>
+
+  <section class="changer__container">
+    <div class="changer_main_photo">
+      <div class="p_container_changer_main_photo">
+        <div class="arrow__changer_main_photo" onclick="openFullscreen(this)">
+          {{!-- <i id="real_arrow__arrow__changer_main_photo" class="material-icons">keyboard_arrow_up</i> --}}
+          <i id="real_arrow__arrow__changer_main_photo" class="material-icons">fullscreen</i>
+        </div>
+        <p class="p_changer_main_photo">Home (3 changes avilable)</p>
+        <div class="arrow__changer_main_photo menu_changer_main_photo"  onclick='close_editor(this)'>
+          <span  id="real_menu__changer_main_photo"  class="material-icons">menu_open</span>
+        </div>
+      </div>
+      <div class="content__changer__container">
+        <div class="img_container_changer">
+          <img id='img_main_changer' src="./uploads/{{main_info__home.image}}.png" alt="">
+          <p class="example_h1__img_container_changer text_align_center">{{main_info__home.main_name}}</p>
+          <p class="example_description__img_container_changer text_align_center">{{main_info__home.main_description}}</p>
+          <p class="prof__text_container__home example_0_4x text_align_center">{{main_info__home.main_tag}}</p>
+
+          <div class="add_socials__img_container_changer change_main_test"  change="texts_main" onclick="open_editor_texts_main(this)">
+            <div class="aft_bef__container__img_container_changer n_bfr_aft">
+              <p class="p__add_socials__img_container_changer">Change text</p>
+              <i id="icon__change_main_text" class="material-icons">edit</i>
+            </div>
+          </div>
+
+          <div class="add_socials__img_container_changer chage_socials" change="socials" onclick="open_editor_socials(this)">
+            <div class="aft_bef__container__img_container_changer ">
+              <p class="p__add_socials__img_container_changer">add socials</p>
+            </div>
+          </div>
+
+          <div class="add_socials__img_container_changer change_photo" change="main_photo" onclick="open_editor_main_photo(this)">
+            <div class="aft_bef__container__img_container_changer n_bfr_aft">
+              <p class="p__add_socials__img_container_changer">Change background phto</p>
+              <i id="icon__change_main_text" class="material-icons">compare</i>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="real_changer">
+          <div class="header__real_changer">
+            <p class="p__header__real_changer">Editor</p>
+          </div>
+          <div class="phone_or_computer__real_changer">
+            <p class="p__phone_or_computer__real_changer">Toggle device</p>
+            <div class="toggle__phone_or_computer__real_changer">
+              <div class="computer_ch__real_changer active" onclick="toggle_device(this)">PC<i id='icon__phone_or_computer__real_changer' class="material-icons">laptop_mac</i></div>
+              <div class="phone_ch__real_changer" onclick="toggle_device(this)"><i  id='icon__phone_or_computer__real_changer' class="material-icons">phone_android</i>SP</div>
+            </div>
+          </div>
+          <form enctype="multipart/form-data" class="change_content_changes" current='texts_main__changer' action="/editor" method="POST">
+            <div id="form_changes" class="texts_main__changer">
+                <p class="p__real_changer">Main name</p>
+                <input onkeyup="keyup_main_name(this)" value="{{main_info__home.main_name}}" class="input__real_changer"  type="text" name="main_name">
+                <p class="p__real_changer">Description</p>
+                <textarea onkeyup="keyup_main_description(this)" id='textarea_scrolling' class="textarea__real_changer" name="main_description">{{main_info__home.main_description}}</textarea>
+                <p class="p__real_changer">Your tag</p>
+                <input onkeyup="keyup_main_tag(this)" class="input__real_changer" type="text" name="main_tag" value="{{main_info__home.main_tag}}">
+                <button class="button_save_changes__real_changer">Save</button>
+            </div>
+            <div id="form_changes"  class="socials_main_changer display_none">
+                <p class="p__real_changer socials_p_changer">Twitter</p>
+                <input onkeyup="onkeyup_save(this)"  class="input__real_changer" type="text" name="twitter" value="{{socials.twitter}}">
+                <p class="p__real_changer socials_p_changer">Linkedin</p>
+                <input onkeyup="onkeyup_save(this)"  class="input__real_changer" type="text" name="linkedin" value="{{socials.linkedin}}">
+                <p class="p__real_changer socials_p_changer">Facebook</p>
+                <input onkeyup="onkeyup_save(this)"  class="input__real_changer" type="text" name="facebook" value="{{socials.facebook}}">
+                <p class="p__real_changer socials_p_changer">Instagram</p>
+                <input onkeyup="onkeyup_save(this)"  class="input__real_changer" type="text" name="instagram" value="{{socials.instagram}}">
+                <button class="button_save_changes__real_changer">Save</button>
+            </div>
+            <div id="form_changes"  class="photo_ch_main_changer display_none">
+                <p class="p__real_changer">Choose photo</p>
+                <div class="photo_container_change_content_changes">
+                    <input hidden='true' value='{{main_info__home.image}}' name="date">
+                    <input type="file" class="input_ch__photo_container_change_content_changes" name="image" onchange="previewFile(this)">
+                    <img  class="turned_off" src="./uploads/{{main_info__home.image}}.png" alt="" id="img__photo_container_change_content_changes">
+                    <span id="phto_choose_icon__photo_container_change_content_changes" class="material-icons">insert_photo</span>
+                </div>
+                <button class="button_save_changes__real_changer">Save</button>
+            </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>

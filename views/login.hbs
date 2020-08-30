@@ -1,0 +1,32 @@
+<main class="main_registration">
+    <div class="overlay_login"  style="background-image: url(uploads/{{main_info__home.image}}.png);"></div>
+    <div class="log_in__main transition_for_page_moving">
+      <div class="login_to_us__main">
+        <p class="name__login_to_us__main">
+          Log in
+        </p>
+              <form  action="/login" method="POST">
+          <div class="form__login_to_us__main">
+            <div class="input_container__login_to_us__main">
+              <div class="icon_input__login_to_us__main">
+                <i class="material-icons real_icon__login_to_us__main">account_circle</i>
+              </div>
+              <input type="username" placeholder="Username" class="real_input__login_to_us__main"  name="login" autocomplete="off" value="admin221212">
+            </div>
+            <div class="input_container__login_to_us__main" id="margin_for_input_container__main">
+              <div class="icon_input__login_to_us__main">
+                <i class="material-icons real_icon__login_to_us__main">lock</i>
+              </div>
+              <input type="password" placeholder="Password" class="real_input__login_to_us__main"  name="password" value="admin221212">
+            </div>
+            <div class="error__login_to_us__main">
+              <p class="p__error__login_to_us__main">
+                {{error}}
+              </p>
+            </div>
+          </div>
+          <button class="button__connect_to_us__main">Log in</button>
+              </form>
+      </div>
+    </div>
+  </main>

@@ -1,0 +1,33 @@
+<section class="header">
+    <div class="logo">
+      <img сlass='img_logo_header' src="./img/logo.png" alt="">
+    </div>
+    <ul class="ul_header_main">
+      <li class='li__ul_header_main'>
+        <a href="/" class="menu-link">Home</a>
+      </li>
+      <li class='li__ul_header_main'>
+        <a href="#" class="menu-link">Features</a>
+      </li>
+      <li class='li__ul_header_main'>
+        <a href="#" class="menu-link">Works</a>
+      </li>
+      <li class='li__ul_header_main'>
+        <a href="#" class="menu-link">Team</a>
+      </li>
+      <li class='li__ul_header_main'>
+        <a href="#" class="menu-link">Contact</a>
+      </li>
+      {{#if isAuth}}
+        <li class='li__ul_header_main'>
+          <a href="/instruction" class="menu-link">Instruction</a>
+        </li>
+        <li class='li__ul_header_main'>
+          <a href="/admin" class="menu-link">Admin</a>
+        </li>
+        <li class='li__ul_header_main'>
+          <a href="/login" class="menu-link">Login</a>
+        </li>
+      {{/if}}
+    </ul>
+</section>
